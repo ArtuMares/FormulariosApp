@@ -18,9 +18,8 @@ interface Favorito{
   ]
 })
 export class DinamicosComponent {
-
   nuevoJuego:string="";
-
+  a:number=0;
   persona:Persona={
     nombre: "Arturo",
     favoritos: [{
