@@ -9,7 +9,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Nombre del producto" ngModel name="producto" required minlength="3"> 
+                    <input type="text" class="form-control" placeholder="Nombre del producto" [ngModel]="initForm.producto" name="producto" required minlength="3"> 
                     <span *ngIf="nombreValido()" class="form-text text-danger">Debe de ser de 3 letras</span>
                 </div>
             </div>
@@ -18,7 +18,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Precio</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" placeholder="Precio del producto" ngModel name="precio" required min="0">
+                    <input type="number" class="form-control" placeholder="Precio del producto" [ngModel]="initForm.precio" name="precio" required min="0">
                     <span *ngIf="precioValido()" class="form-text text-danger">El precio debe ser 0 o mayor</span>
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Existencias</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" placeholder="Existencias del producto" ngModel name="existencias">
+                    <input type="number" class="form-control" placeholder="Existencias del producto" [ngModel]="initForm.existencias" name="existencias" customMin [minimo]="0" required>
                 </div>
             </div>
 
@@ -58,5 +58,7 @@
         <span>Value:</span>
         <pre>{{miFormulario.value |json}}</pre>
 
+        <span>CustomDirective:</span>
+        <pre>{{miFormulario.controls.existencias?.errors |json}}</pre>
     </div>
 </div>

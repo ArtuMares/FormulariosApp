@@ -1,1 +1,57 @@
-<p>dinamicos works!</p>
+<h2>Template: <small><b>dinámicos</b></small></h2>
+
+<form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
+    <!-- Nombre -->
+    <div class="mb-3 row">
+        <label class="col-sm3 col-form-lael">Nombre</label>
+        <div class="col-sm9">
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre de la persona" required ngModel>
+            <span class="form-text text-danger"
+                *ngIf="miFormulario.controls.nombre?.errors && miFormulario.touched">Este campo es obligatorio</span>
+        </div>
+    </div>
+    <!-- Agregarfavorito -->
+    <div class="mb-3 row">
+        <label class="col-sm3 col-form-lael">Agregar</label>
+        <div class="col-sm9">
+            <div class="input-group">
+                <input type="text" name="nombre" class="form-control" placeholder="Agregar juego favorito" required
+                    [(ngModel)]="nuevoJuego" name="nuevoJuego"
+                    (keyup.enter)="agregar()">
+                <button class="btn btn-outline-primary" type="button" (click)="agregar()">
+                    Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Lista de juegos favoritos -->
+    <div class="mb-3 row">
+        <label class="col-sm3 col-form-lael">Favoritos</label>
+        <div class="col-sm9">
+
+            <div class="input-group mb-1" *ngFor="let juego of persona.favoritos; let i = index">
+                <input class="form-control " 
+                    [(ngModel)]="juego.nombre" [name]="''+juego.id">
+                    <button class="btn btn-outline-danger" type="button" (click)="eliminar(i)">
+                        Eliminar
+                    </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm12">
+            <button type="button" class="btn btn-primary float-end" (click)="guardar()"
+                [disabled]="miFormulario.invalid">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<span>Persona:</span>
+<pre>
+    {{persona | json}}
+</pre>
