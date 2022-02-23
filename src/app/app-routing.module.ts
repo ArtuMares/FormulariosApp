@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import("./reactive/reactive.module").then(m=>m.ReactiveModule) //lazyload del módulo de reactive
   },
   {
+    path: "auth",
+    loadChildren: () => import("./auth/auth.module").then(m=>m.AuthModule) //lazyload del módulo de reactive
+  },
+  {
     path:"**",
     redirectTo: "template"
   }

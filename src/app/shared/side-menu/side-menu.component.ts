@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateModule } from '../../template/template.module';
 
-interface MenuItem{
-  texto:string,
-  ruta:string
+interface MenuItem {
+  texto: string,
+  ruta: string
 }
 
 @Component({
@@ -16,35 +16,44 @@ interface MenuItem{
   `
   ]
 })
-export class SideMenuComponent  {
+export class SideMenuComponent {
 
-  templateMenu:MenuItem []=[{
-    texto:"Básicos",
+  templateMenu: MenuItem[] = [{
+    texto: "Básicos",
     ruta: "./template/basicos"
   },
   {
-    texto:"Dinámicos",
+    texto: "Dinámicos",
     ruta: "./template/dinamicos"
   },
   {
-    texto:"Switches",
+    texto: "Switches",
     ruta: "./template/switches"
   },
-];
+  ];
 
-reactiveMenu:MenuItem []=[{
-  texto:"Básicos",
-  ruta: "./reactive/basicos"
-},
-{
-  texto:"Dinámicos",
-  ruta: "./reactive/dinamicos"
-},
-{
-  texto:"Switches",
-  ruta: "./reactive/switches"
-},
-];
-
+  reactiveMenu: MenuItem[] = [{
+    texto: "Básicos",
+    ruta: "./reactive/basicos"
+  },
+  {
+    texto: "Dinámicos",
+    ruta: "./reactive/dinamicos"
+  },
+  {
+    texto: "Switches",
+    ruta: "./reactive/switches"
+  },
+  ];
+  authMenu: MenuItem[] = [
+    {
+      texto: "Registro",
+      ruta: "./auth/registro"
+    },
+    {
+      texto: "Login",
+      ruta: "./auth/login"
+    }
+  ];
 
 }

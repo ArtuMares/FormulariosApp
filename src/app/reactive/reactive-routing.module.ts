@@ -14,12 +14,6 @@ const routes: Routes = [
     {path: "switches", component: SwitchesComponent},
     {path: "**", redirectTo: "basicos"}
   ]
-  },
-  {
-
-  },
-  {
-
   }
 ];
 
